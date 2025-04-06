@@ -1,0 +1,3 @@
+https://github.com/MicrosoftLearning/AI-102-AIEngineer/blob/master/Instructions/22-azure-search.md
+
+Explore and modify definitions of search components

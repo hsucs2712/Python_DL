@@ -1,0 +1,3 @@
+c97d0ffc7157433d9efbb5784ff57769
+eastasia
+https://azcvs1688.cognitiveservices.azure.com/

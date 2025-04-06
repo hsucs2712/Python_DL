@@ -1,0 +1,3 @@
+
+
+curl -X POST "https://azclu1688.cognitiveservices.azure.com/language/:analyze-conversations?api-version=2022-05-01" -H "Ocp-Apim-Subscription-Key: ccab0ab644fc450d85d5836b8e840b4c"  -H "Apim-Request-Id: 4ffcac1c-b2fc-48ba-bd6d-b69d9942995a" -H "Content-Type: application/json" -d "{\"kind\":\"Conversation\",\"analysisInput\":{\"conversationItem\":{\"id\":\"1\",\"text\":\"What's the time in Sydney\",\"modality\":\"text\",\"language\":\"EN\",\"participantId\":\"1\"}},\"parameters\":{\"projectName\":\"Clock\",\"verbose\":true,\"deploymentName\":\"production\",\"stringIndexType\":\"TextElement_V8\"}}"

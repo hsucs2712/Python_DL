@@ -1,0 +1,126 @@
+az ad sp create-for-rbac -n "api://ai-app" --role owner --scopes subscriptions/0943bb36-5464-4ba2-ae41-b0b4dda5e94b/resourceGroups/EastAsia
+
+C:\Users\lewis_yang>az ad sp create-for-rbac -n "api://ai-app" --role owner --scopes subscriptions/0943bb36-5464-4ba2-ae41-b0b4dda5e94b/resourceGroups/EastAsia
+Creating 'owner' role assignment under scope 'subscriptions/0943bb36-5464-4ba2-ae41-b0b4dda5e94b/resourceGroups/EastAsia'
+The output includes credentials that you must protect. Be sure that you do not include these credentials in your code or check the credentials into your source control. For more information, see https://aka.ms/azadsp-cli
+'name' property in the output is deprecated and will be removed in the future. Use 'appId' instead.
+{
+  "appId": "2a71841f-f58f-46f9-847e-e78287910918",
+  "displayName": "api://ai-app",
+  "name": "2a71841f-f58f-46f9-847e-e78287910918",
+  "password": "v1l_nL.rcb-SSVFlO7W0cw0v~WClvdeY87",
+  "tenant": "3e04753a-ae5b-42d4-a86d-d6f05460f9e4"
+}
+
+az ad sp show --id 2a71841f-f58f-46f9-847e-e78287910918 --query objectId --out tsv
+
+C:\Users\lewis_yang>az ad sp show --id 2a71841f-f58f-46f9-847e-e78287910918 --query objectId --out tsv
+653ee1f0-d0ac-4e84-8185-74a3367be55a
+
+
+az keyvault set-policy -n azkv0608 --object-id 653ee1f0-d0ac-4e84-8185-74a3367be55a --secret-permissions get list
+
+C:\Users\lewis_yang>az keyvault set-policy -n azkv0608 --object-id 653ee1f0-d0ac-4e84-8185-74a3367be55a --secret-permissions get list
+{
+  "id": "/subscriptions/0943bb36-5464-4ba2-ae41-b0b4dda5e94b/resourceGroups/EastAsia/providers/Microsoft.KeyVault/vaults/azkv0608",
+  "location": "eastasia",
+  "name": "azkv0608",
+  "properties": {
+    "accessPolicies": [
+      {
+        "applicationId": null,
+        "objectId": "9d9b954b-6a6b-47ee-918b-55e143e01a3d",
+        "permissions": {
+          "certificates": [
+            "Get",
+            "List",
+            "Update",
+            "Create",
+            "Import",
+            "Delete",
+            "Recover",
+            "Backup",
+            "Restore",
+            "ManageContacts",
+            "ManageIssuers",
+            "GetIssuers",
+            "ListIssuers",
+            "SetIssuers",
+            "DeleteIssuers"
+          ],
+          "keys": [
+            "Get",
+            "List",
+            "Update",
+            "Create",
+            "Import",
+            "Delete",
+            "Recover",
+            "Backup",
+            "Restore",
+            "GetRotationPolicy",
+            "SetRotationPolicy",
+            "Rotate"
+          ],
+          "secrets": [
+            "Get",
+            "List",
+            "Set",
+            "Delete",
+            "Recover",
+            "Backup",
+            "Restore"
+          ],
+          "storage": null
+        },
+        "tenantId": "3e04753a-ae5b-42d4-a86d-d6f05460f9e4"
+      },
+      {
+        "applicationId": null,
+        "objectId": "653ee1f0-d0ac-4e84-8185-74a3367be55a",
+        "permissions": {
+          "certificates": null,
+          "keys": null,
+          "secrets": [
+            "list",
+            "get"
+          ],
+          "storage": null
+        },
+        "tenantId": "3e04753a-ae5b-42d4-a86d-d6f05460f9e4"
+      }
+    ],
+    "createMode": null,
+    "enablePurgeProtection": null,
+    "enableRbacAuthorization": false,
+    "enableSoftDelete": true,
+    "enabledForDeployment": false,
+    "enabledForDiskEncryption": false,
+    "enabledForTemplateDeployment": false,
+    "hsmPoolResourceId": null,
+    "networkAcls": null,
+    "privateEndpointConnections": null,
+    "provisioningState": "Succeeded",
+    "publicNetworkAccess": "Enabled",
+    "sku": {
+      "family": "A",
+      "name": "Standard"
+    },
+    "softDeleteRetentionInDays": 90,
+    "tenantId": "3e04753a-ae5b-42d4-a86d-d6f05460f9e4",
+    "vaultUri": "https://azkv0608.vault.azure.net/"
+  },
+  "resourceGroup": "EastAsia",
+  "systemData": {
+    "createdAt": "2022-06-08T13:50:15.005000+00:00",
+    "createdBy": "lewis_yang@trendmicro.com",
+    "createdByType": "User",
+    "lastModifiedAt": "2022-06-08T13:55:54.075000+00:00",
+    "lastModifiedBy": "lewis_yang@trendmicro.com",
+    "lastModifiedByType": "User"
+  },
+  "tags": {},
+  "type": "Microsoft.KeyVault/vaults"
+}
+
+C:\Users\lewis_yang>

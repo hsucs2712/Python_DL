@@ -1,0 +1,13 @@
+https://azcv1688-prediction.cognitiveservices.azure.com/customvision/v3.0/Prediction/3e61f72e-dcb2-41f4-8c7d-3380b9387b87/classify/iterations/fruit-classifier/url
+Set Prediction-Key Header to : b2981fffdf3a41a989d22823d5f7590d
+Set Content-Type Header to : application/json
+Set Body to : {"Url": "https://aka.ms/apple-image"}
+-----------------------------------------------------
+--
+-----------------------------------------------------
+If you have an image file:
+-----------------------------------------------------
+https://azcv1688-prediction.cognitiveservices.azure.com/customvision/v3.0/Prediction/3e61f72e-dcb2-41f4-8c7d-3380b9387b87/classify/iterations/fruit-classifier/image
+Set Prediction-Key Header to : b2981fffdf3a41a989d22823d5f7590d
+Set Content-Type Header to : application/octet-stream
+Set Body to : <image file>
